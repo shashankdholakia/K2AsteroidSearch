@@ -1,1 +1,1 @@
-# K2AsteroidSearch
+# k2-asteroid-search
