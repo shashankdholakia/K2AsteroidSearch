@@ -5,7 +5,9 @@
 """
 
 import K2fov
-        
+from K2fov.projection import PlateCaree, HammerAitoff, Cylindrical
+from K2fov import greatcircle
+    
 class TPF:
     """
     Represents a K2 Target Pixel File as 4 corners in RA and DEC and XYZ space
@@ -17,7 +19,7 @@ class TPF:
         self.RA_DEC_corners = corners
         self.XYZ_corners = []
     def is_obj_in_TPF(self):
-        ##shortest distance on 
+        ##computes shortest distance
         
 
 
