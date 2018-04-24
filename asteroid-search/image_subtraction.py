@@ -7,6 +7,7 @@ import os
 import numpy as np
 from astropy.io import fits
 from astropy.wcs import WCS
+from reproject import reproject_interp
 
 """
 
@@ -30,7 +31,7 @@ class Image():
         self.filename = filename
         
     def load_image(self):
-        if os.path.exists("directoryorfile")
+        if os.path.exists(os.path.join(filepath, filename)):
             hdulist = fits.open(os.path.join(filepath, filename))
             return hdulist
         else:
@@ -55,20 +56,24 @@ class K2image(Image):
     
     def __init__(self, filepath, filename):
         self.__init__(filepath,filename)
+        
 
     
 class ImageSubtraction:
 
    
     def main_image_subtraction(self,filepath):
-        filelist = os.listdir(filepath)
-        for filename in filepath
-        hdulist = fits.open(filepath + '/' + filename)
+        pass
+    
+    def align_image(self,img, header, ref_img_header):
         
-    
-    
-    def align_image(self,filename,ref_img):
-        return hdulist
+        """
+        Takes an ImageHDU object as img, the header of that image for header
+        and a astropy header object from the reference image for ref_img
+        """
+        
+        aligned_img, footprint = reproject.reproject_interp((img,header), ref_img.header)
+        return aligned_img
     
     def create_median_stacked_img(self,filepath):
         return hdulist
@@ -76,10 +81,7 @@ class ImageSubtraction:
     def subtract_from_median(self,filename):
         return hdulist
     
-    def find_background_threshold(self,filename):
-        """find median and median absolute deviation of the image"""
-        
-        return background_threshold, sigma
+
         
     def create_bright_obj_mask(self,filename):
         """
@@ -87,9 +89,8 @@ class ImageSubtraction:
         standard deviation cutoff in the image. Returns a mask (True/False array
         of all the regions in the image which are statistically significant pixels. 
         """
-        
+        pass
     def save_output():
-        
+        pass
 if __name__ == '__main__':
-    
-    main_image_subtraction('/)
+    pass
