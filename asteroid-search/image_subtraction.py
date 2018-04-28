@@ -61,7 +61,8 @@ class K2image(Image):
     
 class ImageSubtraction:
 
-   
+    
+
     def main_image_subtraction(self,filepath):
         pass
     
@@ -72,11 +73,17 @@ class ImageSubtraction:
         and a astropy header object from the reference image for ref_img
         """
         
-        aligned_img, footprint = reproject.reproject_interp((img,header), ref_img.header)
+        aligned_img, footprint = reproject_interp((img,header), ref_img_header)
         return aligned_img
     
-    def create_median_stacked_img(self,filepath):
-        return hdulist
+    def create_median_stacked_img(self,imgs):
+        """
+        Takes a list of (aligned) ndarray images and returns a 
+        median combined stack
+        """
+        imgs = np.asarray(imgs)
+        med = np.median(imgs, axis=0)
+        return med
     
     def subtract_from_median(self,filename):
         return hdulist
